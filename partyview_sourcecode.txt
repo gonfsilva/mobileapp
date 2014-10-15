@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<meta name = "viewport" content = "user-scalable = no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="google-site-verification" content="RYjIl3WW93ZAZgyPDolFoYF3NPOenfOOvzd0A2DEr3g" />
+    <html itemscope itemtype="http://schema.org/Other">
+    <meta itemprop="name" content="nextstop.pt">
+	<meta itemprop="description" content="A tua festa! Encontra uma festa perto de ti.">
+	<meta itemprop="image" content="https://plus.google.com/u/2/117431947481999930682/about?pid=6059986107271460418&amp;oid=117431947481999930682">
+    <meta name="msvalidate.01" content="B06D57398B163B00F6BC6B51E1DCF32A" />
+   		<!-- Run in full-screen mode. -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+ 
+        <!-- Make the status bar black with white text. -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+ 
+        <!-- Customize home screen title. -->
+        <meta name="apple-mobile-web-app-title" content="Web App">
+ 
+        <!-- Disable phone number detection. -->
+        <meta name="format-detection" content="telephone=no">
+ 
+        <!-- Set viewport. -->
+       <!-- <meta name="viewport" content="initial-scale=1"> -->
+ 
+        <!-- Prevent text size adjustment on orientation change. -->
+        <style>html { -webkit-text-size-adjust: 100%; }</style>
+ 
+    <title>NextStop | A tua festa!</title>
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/jquery.slimscroll.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/jquery.unveil.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/mobiscroll.custom-2.5.0.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/jQueryRotate.2.2.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/jquery.ui.touch-punch.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/tap/jquery.tap.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/noty/jquery.noty.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/noty/layouts/bottomCenter.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://quemtem-crazyshit.rhcloud.com/js/noty/themes/default.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js" charset="UTF-8"></script>
+<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://quemtem-crazyshit.rhcloud.com/css/ink.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://quemtem-crazyshit.rhcloud.com/css/account.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://quemtem-crazyshit.rhcloud.com/css/main.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://quemtem-crazyshit.rhcloud.com/css/main2.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://quemtem-crazyshit.rhcloud.com/css/mobiscroll.custom-2.5.0.min.css" media="screen" />
+<link type="text/css" rel="stylesheet" href="http://code.jquery.com/ui/1.9.1/themes/base/jquery-ui.css" media="screen" />
+
+	<!--[if IE ]>
+	<link rel="stylesheet" href="/ink-v1/css/ink-ie.css" type="text/css" media="screen" title="no title" charset="utf-8">
+	<![endif]-->
+	
+	<!--GoogleAnalytics-->
+    
+    
+			<script type="text/javascript">
+			//<![CDATA[
+			
+			var map; // Global declaration of the map
+			//var iw = new google.maps.InfoWindow(); // Global declaration of the infowindow
+			var lat_longs = new Array();
+			var markers = new Array();
+			function initialize() {
+				
+				 var myLatlng = new google.maps.LatLng(38.707335959166000, -9.142431736936500);
+				var myOptions = {
+			  		zoom: 14,center: myLatlng,
+			  		mapTypeId: google.maps.MapTypeId.ROADMAP}
+				map = new google.maps.Map(document.getElementById("map_party"), myOptions);
+				google.maps.event.addListener(map, "bounds_changed", function(event) {
+    			if (!centreGot) {
+				var mapCentre = map.getCenter();
+				window.lat = mapCentre.lat();
+				window.lon = mapCentre.lng();
+				getAddress();
+			}
+			centreGot = true;
+  			});
+			
+			var myLatlng = new google.maps.LatLng(38.707335959166000, -9.142431736936500);
+				
+			var markerOptions = {
+				map: map,
+				position: myLatlng,
+				icon: "/imgs/icon_party_oct2_2_mobile.png"		
+			};
+			marker_0 = createMarker(markerOptions);
+			
+			
+			}
+		
+		
+		function createMarker(markerOptions) {
+			var marker = new google.maps.Marker(markerOptions);
+			markers.push(marker);
+			lat_longs.push(marker.getPosition());
+			return marker;
+		}
+		
+			function loadScript() {
+				var script = document.createElement("script");
+  				script.type = "text/javascript";
+  				script.src = "http://maps.google.com/maps/api/js?sensor=false&callback=initialize";
+  				document.body.appendChild(script);
+			}
+			window.onload = loadScript;
+			
+			//]]>
+			</script>    
+</head>
+<body>
+<script>
+  		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-40119296-1', 'nextstop.pt');ga('send', 'pageview');
+		var centreGot = false;
+		$('body').delay('1000').animate({ scrollTop: '0px' }, 'slow'); //simple trick for ios chrome users with fullscreen functionality to see the whole pageh
+	</script>
+    
+<div id="topbar" style="height: 150PX">
+	<nav class="ink-navigation ink-collapsible ink-container" style="padding:none;">
+		<ul class="menu horizontal flat black" style="width: 100%;text-align: center;">
+        	<li id="maplink" style="display:none; float: left;">
+            	<div style="padding-top: 42px;height: 108px;">
+            		<i class="icon-map-marker icon-4x" style="color:#fff;"></i> <span style="font-size: 50px;"><!--&nbsp Mapa --></span>
+                </div>
+            </li>
+             <li id="backlink" style="display:none; float: left;">
+            	<div style="padding-top: 42px;height: 108px;">
+            		<i class="icon-chevron-left icon-4x" style="color:#fff;"></i> <span style="font-size: 50px;"><!--&nbsp Mapa --></span>
+                </div>
+            </li>
+			<li id="logoOnBar" style="position: fixed; left:0; display:none;">
+				<a href="/mobile/main"><img id="logoNS" src="/imgs/ns_logo.gif" style="height: 150px;" /><span style="color: #fff; font-size: 50px;">&nbsp; Mapa</span></a>
+			</li>
+            <li id="topbarinfo" style="position: fixed; left:42%; display:none;">
+	            <div style="padding-top: 70px;height: 108px;padding-right: 100px;">
+				&nbsp;<span id="topbarinfotext" style="color: #fff; font-size: 50px;">Mapa</span></a>
+                </div>
+			</li>
+            <li id="barralink" style="float: right;">
+            	<div style="padding-top: 42px;height: 108px;padding-right: 100px;">
+            		<span style="font-size: 50px; color:#fff;"><!--Lista &nbsp --></span> <i class="icon-list icon-4x" style="color:#fff;"></i>
+                </div>
+            </li>
+		</ul>
+	</nav>
+</div>
+<div id="fbidSpace" style="display: none;" fbid="0"></div>
+<div id="party_content" style="padding-top:150px;">
+<div id="party_header">
+<div class="boxe effect6">
+	<div id="map_party" style="width:100%; height:360px;"></div>	<img id="festaimg" src="/imgs/ns_party_default.jpg">
+    <div id="festauplover">
+        <div align="center">
+            <form method="post" action="" id="upload_file" enctype="multipart/form-data">
+                    <input id="userfile" class="ink-button" type="file" name="userfile" size="20" style="display:none">
+                    <input type="hidden" name="csrf_tok" value="b3d9d26d0c9e62c5921cf1602a152e30" />
+                    <div id="submitimg"><i class="icon-plus"></i> Mudar Foto</div>
+            </form>
+        <div id="output"></div>
+     	</div>
+    </div>
+</div>
+</div>
+<div id="party_body">
+<div id="partyleftcolumn" style="width:95%; padding: 0px 25px;line-height: 1.5;">
+	<h4 id="nome" style="font-size: 50px;margin-bottom: 40px;">BAIRRAZZA CAIS SODR&Eacute; || Ter 14 a Sex 17 - ANDR&Eacute; COSTA || S&aacute;b 18 - KHALIL &amp; LUDOTECK</h4>
+    <div id="festainfo" style="padding: 0px 0px;">
+    	<div id="info_sep" style="float: none;">
+			<i class="icon-time icon-2x" style="font-size: 40px;"></i>
+        	<div id="rightcompmobile"  style="font-size: 40px;">Data/Hora</div>
+        	<div id="datahorafesta"  style="font-size: 50px;"></div>
+        </div>
+        <div id="info_sep" style="float: none;">
+			<i class="icon-pushpin icon-2x" style="font-size: 40px;"></i>
+        	<div id="rightcompmobile" style="font-size: 40px;">Nome do Local</div>
+            <div class="editContainee" style="border: none;padding-top: 0; font-size:50px;" id="local">
+                Bairrazza Cais Sodr&eacute;            </div>
+        </div>
+        <div id="info_sep" style="display: none; float: none;">
+        	<i class="icon-male icon-2x" style="font-size: 40px;"></i>
+        	<div id="rightcompmobile"  style="font-size: 40px;">Dresscode</div>
+			<div dcval="0" id="dresscode"   style="font-size: 50px;">
+			Não Especificar			</div>
+        </div>
+        <div id="info_sep" style="float: none;">
+			<i class="icon-building icon-2x" style="font-size: 40px;"></i>
+        	<div id="rightcompmobile"  style="font-size: 40px;">Morada</div>
+        	<div id="morada" title="Arrasta o marcador no mapa para alterar a morada!"  style="font-size: 50px;"></div>
+        </div>
+	    <div class="buttongeneralmobile" id="googleMapsButton" style="float:none;margin-top: 40px;"><p style="font-size: 50px; font-weight: bold;margin-left:5px;margin-right:5px; line-height: 1em;"><i class="icon-map-marker"></i><span key="IrParaGoogleMaps" class="translate"> Ir para Google Maps </span></p></div>
+        <div class="buttongeneralmobile" id="facebookButton" style="display:none;margin-top: 20px;margin-bottom: 40px; float:none;"><p style="font-size: 52px;margin-right:5px; line-height: 1em;"><i class="icon-facebook"></i> Ver evento no facebook</p></div>
+	</div>
+	<div class="editContainer" style="float: none;">
+		<div id="info_sep" class="editIconContainer" style="margin-bottom: 0;position: relative; font-size: 40px; float:none;"><i class="icon-list icon-2x" style="font-size: 32px;"></i><div id="rightcompmobile"  style="font-size: 40px;">Descrição</div>
+    	</div>
+		<div class="collapseFix" style="margin: 0px;">
+			<div class="editContainee" id="descricao"  style="margin: 0px;font-size: 50px; border:none;">
+			</div>
+		</div>
+	</div>
+    <div class="editContainer" id="convidadosContainer">
+		<div id="friendsFBIcon" class="editIconContainer"><i class="icon-group"></i><span style="padding-left:4px; font-size:11px;"> AMIGOS CONVIDADOS</span></div><div class="editIconContainerArrow" style="font-size:14px"><i class="icon-chevron-down noTextCursor"></i></div>
+        <div class="collapseFix" style="padding: 25px 0px;">
+        <div class="noeditContainee" style="height:0"></div>
+		</div>
+	</div>
+</div>
+
+</div>
+</div>
+
+<script>
+var d = new Date();
+var n = d.getTimezoneOffset();
+var tempdatahora = new Date(Date.UTC(2014,9,14,23,00) - n*60000);
+var tempdatahorastr = tempdatahora.getUTCDate() +"/"+
+  ("0" + (tempdatahora.getUTCMonth()+1)).slice(-2) +"/"+
+  tempdatahora.getUTCFullYear() + " " +
+  ("0" + tempdatahora.getUTCHours()).slice(-2) + ":" +
+  ("0" + tempdatahora.getUTCMinutes()).slice(-2);
+if(1){
+	var tempdatahorastr = "14/10/2014 23:00";
+	var tempdatahorastrf = "15/10/2014 04:00";
+	if(0){
+		if(tempdatahorastrf != tempdatahorastr){
+			var datafinal = datashowreadysemhora(tempdatahorastrf);
+			var datainicio = datashowreadysemhora(tempdatahorastr);
+			$('#datahorafesta').append("<span id=\"rightcompmobile\" style=\"margin-right: 5px;\">DE </span>").append(datainicio).append("<br><span id=\"rightcompmobile\" style=\"margin-right: 5px;\">ATÉ </span>").append(datafinal);
+		}else{
+			var datainicio = datashowreadysemhora(tempdatahorastr);
+			$('#datahorafesta').append(datainicio);
+		} 
+	}else{
+		if(tempdatahorastrf != tempdatahorastr){
+			var datafinal = datashowready(tempdatahorastrf);
+			var datainicio = datashowready(tempdatahorastr);
+			$('#datahorafesta').append("<span id=\"rightcompmobile\" style=\"margin-right: 5px;\">DE </span>").append(datainicio).append("<br><span id=\"rightcompmobile\" style=\"margin-right: 5px;\">ATÉ </span>").append(datafinal);
+		}else{
+			var datainicio = datashowready(tempdatahorastr);
+			$('#datahorafesta').append(datainicio);
+		}
+	}
+}else{
+	var datashowreadytemp = datashowready(tempdatahorastr);
+	$('#datahorafesta').append(datashowreadytemp);
+}
+/* Create or Update party variables init */
+var firstInsert = 0;
+var url = 'update';
+var partyid = 399;
+//facebookButton implementation
+var checkfacebooktemp = "1486603971616398";
+var checkfacebook = parseInt(checkfacebooktemp);
+if (checkfacebook){
+	var str = "https://www.facebook.com/events/";
+	var eventidtemp = checkfacebook.toString();
+	var temp = str.concat(eventidtemp);
+	$('#facebookButton').attr('data', temp);
+	$('#facebookButton').css({'display': 'block'});
+}
+/* end block */
+//function to process tooltip classes
+//Copyright *http://www.alessioatzeni.com* Alessio Atzeni
+function nl2br (str){
+	return str.replace(/\n/g, "<br>");
+}
+function clean(){
+	$(window).off("beforeunload");
+}
+//function to process party creation/update
+
+function getAddress() {
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'latLng': marker_0.getPosition(), 'language': 'pt-Pt'}, function(responses, status) {
+		if (status == google.maps.GeocoderStatus.OK && responses.length > 0) {
+	    	$('#morada').html(responses[0].formatted_address);
+		} else {
+	    	noty({text: 'O Google Maps não conseguiu determinar a morada do local!', type: 'error', timeout: '3000'});
+		}
+	});
+}
+
+function datashowreadysemhora(strtemp){
+	var temp = strtemp.split(' ');
+	var tempdatahora = temp[0].split('/');
+	var hora = temp[1].split(':');
+	switch (tempdatahora[1]) {
+		case '01': var month = "Janeiro"; break;
+		case '02': var month = "Fevereiro"; break;
+		case '03': var month = "Março"; break;
+		case '04': var month = "Abril"; break;
+		case '05': var month = "Maio"; break;
+		case '06': var month = "Junho"; break;
+		case '07': var month = "Julho"; break;
+		case '08': var month = "Agosto"; break;
+		case '09': var month = "Setembro"; break;
+		case '10': var month = "Outubro"; break;
+		case '11': var month = "Novembro"; break;
+		case '12': var month = "Dezembro"; break;
+		default: var month = "JAN";
+	}
+	var dataobjtemp = new Date(Date.UTC(parseInt(tempdatahora[2]),parseInt(tempdatahora[1]-1),parseInt(tempdatahora[0])));
+	var weekday = new Array(7);
+	weekday[0] = "Domingo";
+	weekday[1]=  "Segunda";
+	weekday[2] = "Ter&ccedil;a";
+	weekday[3] = "Quarta";
+	weekday[4] = "Quinta";
+	weekday[5] = "Sexta";
+	weekday[6] = "S&aacute;bado";
+
+	var diasemana = weekday[dataobjtemp.getDay()];
+	var temp = diasemana;
+	var temp2 = temp.concat('<span id=\"rightcompmobile\" style=\"margin-left: 0px;\">, </span>',parseInt(tempdatahora[2]),'<span id=\"rightcompmobile\" style=\"margin-left: 0px;\"> de </span>',month);
+	return temp2;
+}
+
+function datashowready(strtemp){
+	var temp = strtemp.split(' ');
+	var tempdatahora = temp[0].split('/');
+	var hora = temp[1].split(':');
+	switch (tempdatahora[1]) {
+		case '01': var month = "Janeiro"; break;
+		case '02': var month = "Fevereiro"; break;
+		case '03': var month = "Março"; break;
+		case '04': var month = "Abril"; break;
+		case '05': var month = "Maio"; break;
+		case '06': var month = "Junho"; break;
+		case '07': var month = "Julho"; break;
+		case '08': var month = "Agosto"; break;
+		case '09': var month = "Setembro"; break;
+		case '10': var month = "Outubro"; break;
+		case '11': var month = "Novembro"; break;
+		case '12': var month = "Dezembro"; break;
+		default: var month = "JAN";
+	}
+	var dataobjtemp = new Date(Date.UTC(parseInt(tempdatahora[2]),parseInt(tempdatahora[1]-1),parseInt(tempdatahora[0])));
+	var weekday = new Array(7);
+	weekday[0] = "Domingo";
+	weekday[1]=  "Segunda";
+	weekday[2] = "Ter&ccedil;a";
+	weekday[3] = "Quarta";
+	weekday[4] = "Quinta";
+	weekday[5] = "Sexta";
+	weekday[6] = "S&aacute;bado";
+
+	var diasemana = weekday[dataobjtemp.getDay()];
+	var temp = diasemana;
+	var temp2 = temp.concat('<span id=\"rightcompmobile\" style=\"margin-left: 0px;\">, </span>',parseInt(tempdatahora[2]),'<span id=\"rightcompmobile\" style=\"margin-left: 0px;\"> de </span>',month,'<span id=\"rightcompmobile\" style=\"margin-left: 0px;\"> às </span>',hora[0],':',hora[1]);
+	return temp2;
+}
+
+if("ontouchstart" in window){ //ipad 
+} else {
+	//aqui
+	//window.location.href = "http://quemtem-crazyshit.rhcloud.com/party/"; 	
+}
+
+$(document).ready(function(){
+	window.fbid = "1486603971616398";
+	window.fbphoto = "https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/c87.0.320.320/p320x320/10351673_10204130602203581_6450921830854193273_n.jpg?oh=a79f145b3ef7f2b235993d0a78702564&oe=54F3ADFA&__gda__=1420569136_6c10c4d8c9472d740464e66f6ba2497a";
+	var descricao = "BAIRRAZZA CAIS SODR&Eacute; - COCKTAIL &amp; GIN CLUBBING\n*** ENTRADA LIVRE ***\n\nTer 14 a Sex 17 - ANDR&Eacute; COSTA\nhttp://www.mixcloud.com/andre-costa4\n\nS&aacute;b 18 - KHALIL &amp; LUDOTECK\nhttp://www.mixcloud.com/MahomedKhalil\nhttps://soundcloud.com/minimo\n\nPROMO&Ccedil;&Otilde;ES:\n\nNa compra de qualquer bebida com Carolans\nOFERTA de um PORTA CHAVES da marca\n\nBeer Happy Hour 23h - 2h\nImperial 20cl 1&euro;\nImperial 60cl 2&euro;";
+	$('#descricao').html(nl2br(descricao));
+	
+	var str = "https://www.google.com/maps/dir/Current+Location/";
+	var lattemp = 38.707335959166000;
+	var lontemp = -9.142431736936500;
+	var lattemp = lattemp.toString();
+	var lontemp = lontemp.toString();
+	var temp = str.concat(lattemp,",",lontemp);
+	$('#googleMapsButton').attr('mapsdirection', temp);
+	
+	if(window.fbid != "0"){
+		$('#festaimg').attr('src',window.fbphoto);
+	}
+	window.photoid = "0";
+	if(window.photoid != "0" && window.fbid == "0"){
+		$('#festaimg').attr('src','http://quemtem-crazyshit.rhcloud.com/partyimg/'+window.photoid);
+	}
+	$('#backlink').attr('onClick',"window.location='http://quemtem-crazyshit.rhcloud.com/mobile/main'");
+	
+	$('#backlink').css({ 'display': 'inline' });
+	$('#maplink').css({ 'display': 'none' });
+	$('#barralink').css({ 'display': 'none' });
+	$('#topbarinfo').css({ 'display': 'inline' });
+	$('#topbarinfotext').text('Festa');
+	$('#googleMapsButton').on("click", function(){
+		var temp = $(this).attr("mapsdirection");
+		window.open(temp);
+	});
+	$('#facebookButton').on("click", function(){
+		var temp = $(this).attr("data");
+		window.open(temp);
+	});
+});
+
+</script>

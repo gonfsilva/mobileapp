@@ -1,0 +1,169 @@
+/* CSS Document */
+table {
+	table-layout: fixed;
+}
+#divideCont{
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.74);
+	-moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.74);
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.74);
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border-radius: 5px 5px 5px 5px;
+}
+.horizontal {
+     float: left;
+     list-style: none;
+     margin: 0 px;
+}
+div #scrollar {
+	width: 100%;
+}
+ul.festas {
+	width: 100%;
+	margin-left: 0;
+    padding:0;
+}
+#scrollar > div > div.titTabelaMinhasFestas {
+	height: 70px;
+  	text-align: center;
+}
+#scrollar > div > div.titTabelaMinhasFestas > div > div.favoritos{
+	width: 130px;
+	height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: absolute;
+	left: 60px;
+}
+#scrollar > div > div.titTabelaMinhasFestas > div > div.favoritos:hover {
+	background: #fff;
+	cursor: pointer;
+}
+#scrollar > div > div.titTabelaMinhasFestas > div > div.minhasFestas:hover {
+	background: #fff;
+	cursor: pointer;
+}
+#scrollar > div > div.titTabelaMinhasFestas > div > div.minhasFestas{
+	width: 130px;
+	height: 50px;
+	left: 190px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	position: absolute;
+	border-left: 1px solid #f90;
+	border-right: 1px solid #f90;
+	color: #f90;
+}
+#titFesta2 {
+	width: auto;
+	overflow: hidden;
+	word-wrap: word-break;
+	word-break: break-all;
+}
+#datafestaacc {
+	width: auto;
+}
+#tabfestasMinhas {
+	width: 100%;
+	/*border-spacing: 0;*/
+}
+#tabfestasMinhas2 {
+	width: 100%;
+	/*border-spacing: 0;*/
+}
+div #account_100 {
+	width: 100%;
+	padding-left: 10%;
+	overflow: hidden;
+}
+div #accountInfo {
+	width: 100%;
+	text-align: center;
+	float: left;
+}
+#accountInfo > h3 {
+	padding: 0;
+}
+div #imgProfile {
+	float: left;
+}
+div #opaimg{
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	opacity: 0.4;
+	background: #000;
+}
+#imgaccback{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	position: fixed;
+}
+div #primeiroDiv {
+
+}
+div #segundoDiv{
+	padding-left: 10%;
+	width: 80%;
+}
+.right {
+	text-align: right;
+	width: 80px;
+}
+#bardivis {
+	height: 25px;
+	border-bottom: 1px solid #666;
+	/*-moz-box-shadow:    inset 0 -4px 4px -4px #666;
+  	-webkit-box-shadow: inset 0 -4px 4px -4px #666;
+  	box-shadow:      	  inset 0 -4px 4px -4px #666;*/
+  	font-size: 16px;
+}
+#bardivis:hover{
+	cursor: default;
+}
+#bardivis1:hover{
+	cursor: default;
+}
+th {
+    background: #cccccc; /* Old browsers */
+	/*background: -moz-linear-gradient(top,  #cccccc 0%, #aaaaaa 50%, #cccccc 100%); /* FF3.6+ */
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cccccc), color-stop(50%,#aaaaaa), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+	/*background: -webkit-linear-gradient(top,  #cccccc 0%,#aaaaaa 50%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+	/*background: -o-linear-gradient(top,  #cccccc 0%,#aaaaaa 50%,#cccccc 100%); /* Opera 11.10+ */
+	/*background: -ms-linear-gradient(top,  #cccccc 0%,#aaaaaa 50%,#cccccc 100%); /* IE10+ */
+	/*background: linear-gradient(to bottom,  #cccccc 0%,#aaaaaa 50%,#cccccc 100%); /* W3C */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+
+/*-------------------------------- Bar elements (account) -----------------------------*/
+#linha{
+  content:""; 
+  top: -1px;
+  height: 0px;
+  background:-moz-linear-gradient(left, #CCC 0%,#000000 50%,#CCC 100%); 
+  background:-webkit-linear-gradient(left, #CCC 0%,#000000 50%,#CCC 100%); 
+  background:linear-gradient(left, #CCC 0%,#000000 50%,#CCC 100%);
+  width:100%;
+  display:block;
+}
+#rowParty1:hover{
+	background-color: #FFFFFF;
+	cursor: pointer;
+}
+#rowParty1:hover #borderList {
+    border-left: solid 1px #f90;
+}
+#borderList{
+	border-left: solid 1px #999;
+}
+#rowPartyBorder{
+	border-bottom-style:solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #999;
+
+}
